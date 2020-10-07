@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+/* ----------------------------
+	MESSAGES
+---------------------------- */
+
+.messages {
+	flex: 1 1 100%;
+	/*border: 5px solid red;*/
+	box-sizing: border-box;
+	align-self: flex-end;
+	max-height: 350px;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling:touch;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.messages::-webkit-scrollbar {
+    width: 0.4em;
+}
+ 
+.messages::-webkit-scrollbar-thumb {
+  background-color: #eceff1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+
+/* ----------------------------
+	MESSAGE
+---------------------------- */
+
+.message {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.message > * {
+	padding: 5px 10px;
+	max-width: 100%;
+	border-radius: 2px;
+	margin: 10px 0;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
 }
 
-.App-link {
-  color: #61dafb;
+.not-user-message {
+	background-color: #eceff1;
+	align-self: flex-start;
+	position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.not-user-message:after {
+	content: '';
+	position: absolute;
+	top: -7px;
+	left: 10px;
+	width: 0;
+	border-width: 0 10px 7px 0;
+	border-style: solid;
+	border-color: #eceff1 transparent;
+}
+
+.user-message {
+	background-color: #2196F3;
+	color: #fff;
+	align-self: flex-end;
+	position: relative;
+}
+
+.user-message:after {
+	content: '';
+	position: absolute;
+	bottom: -7px;
+	right: 10px;
+	width: 0;
+	border-width: 7px 0 0 10px;
+	border-style: solid;
+	border-color: #2196F3 transparent;
+}
+
+/* ----------------------------
+	BOX
+---------------------------- */
+.box {
+	margin: auto;
+	display:flex;
+	justify-content: center;
+ 	flex-wrap: wrap;
+ 	align-items: flex-end;
+	width: 100%;
+	height: 350px;
+
+	/*border: 5px solid purple;*/
+}
+
+.box > * {
+	width: 100%;
 }
