@@ -23,7 +23,7 @@ class SendMessage extends Component {
 
     createMessage = () => {
         const { addMessage, pseudo, longueur} = this.props
-        if(this.state.message.trim() == ''){
+        if(this.state.message.trim() === ''){
           return false
         }
         if(this.state.message !== '--commands'){
@@ -71,7 +71,7 @@ class SendMessage extends Component {
         let message = this.strUcFirst(event.target.value)
         const longueur = this.props.longueur - message.length
 
-        if(message.substr(0, 3) == '--c'){
+        if(message.substr(0, 3) === '--c'){
           message = '--commands' 
         }
         

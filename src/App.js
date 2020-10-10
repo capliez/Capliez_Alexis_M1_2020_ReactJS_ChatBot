@@ -46,12 +46,7 @@ class App extends Component {
     const isMessage = true
 
     messages[`message-${Date.now()}`] = message
-    Object
-      .keys(messages)
-      .slice(0, -50)
-      .forEach(key => {
-        messages[key] = null
-      })
+   
 
     this.setState({ messages, currentMessageUser: message, isMessage })
 
@@ -84,20 +79,16 @@ class App extends Component {
     }
 
     messages[`message-${Date.now()}`] = message
-    Object
-      .keys(messages)
-      .slice(0, -50)
-      .forEach(key => {
-        messages[key] = null
-      })
-
+    
     this.setState({ ...this.state.messages, messages })
   }
 
 
   componentDidUpdate() {
-    const ref = this.messagesRef.current
-    ref.scrollTop = ref.scrollHeight
+    setTimeout(() => { 
+      const ref = this.messagesRef.current
+      ref.scrollTop = ref.scrollHeight 
+    }, 300)
   }
 
   render() {
